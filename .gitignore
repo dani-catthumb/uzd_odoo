@@ -1,0 +1,15 @@
+Uninstall.exe
+vcredist/
+thirdparty/
+python/
+PostgreSQL/
+nssm/
+server/.github/*
+server/*
+!server/odoo/
+server/odoo/*
+!server/odoo/addons/
+server/odoo/addons/*
+!server/odoo/addons/docs_info/
+
+
