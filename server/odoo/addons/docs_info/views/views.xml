@@ -1,5 +1,6 @@
 <odoo>
   <data>
+    <!-- basic docs_info model view -->
     <record model="ir.ui.view" id="Books_tree_view">
       <field name="name">Tree view</field>
       <field name="model">docs_info.docs_info</field>
@@ -23,5 +24,58 @@
       sequence="1"
       action="docs_books_list_action" />
 
+
+    <!-- wizard view for selecting date range for filtering -->
+    <record model="ir.ui.view" id="wizard_form_view">
+      <field name="name">Wizard view</field>
+      <field name="model">docs_info.wizard</field>
+      <field name="arch" type="xml">
+        <form string="Select Dates">
+          <group>
+            <field name="start_date" />
+            <field name="end_date" />
+          </group>
+          <footer>
+            <button name="list_selected" type="object"
+              string="List" />
+            <button special="cancel" string="Cancel" />
+          </footer>
+        </form>
+      </field>
+    </record>
+    <record model="ir.actions.act_window" id="docs_books_wizard">
+      <field name="name">Filter By Date</field>
+      <field name="res_model">docs_info.wizard</field>
+      <field name="view_id" ref="wizard_form_view"></field>
+      <field name="view_mode">form</field>
+      <field name="target">new</field>
+    </record>
+    <menuitem id="docs_root_wizard_submenu"
+      name="List By Date"
+      sequence="3"
+      parent="docs_root"
+      action="docs_books_wizard" />
+
+
+    <!-- viev of docs_info with create date field included -->
+    <record model="ir.ui.view" id="Books_tree_view_by_date">
+      <field name="name">Tree view by date</field>
+      <field name="model">docs_info.docs_info</field>
+      <field name="priority" eval="1" />
+      <field name="arch" type="xml">
+        <tree>
+          <field name="document_title"></field>
+          <field name="document_description"></field>
+          <field name="document_company"></field>
+          <field name="create_date"></field>
+        </tree>
+      </field>
+    </record>
+    <record model="ir.actions.act_window" id="docs_books_list_by_date_action">
+      <field name="name">Docs/Books by date</field>
+      <field name="res_model">docs_info.docs_info</field>
+      <field name="view_id" ref="Books_tree_view_by_date"></field>
+      <field name="view_mode">tree, form</field>
+    </record>
   </data>
 </odoo>
