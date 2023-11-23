@@ -1,60 +1,27 @@
 <odoo>
   <data>
-    <!-- explicit list view definition -->
-<!--
-    <record model="ir.ui.view" id="docs_info.list">
-      <field name="name">docs_info list</field>
+    <record model="ir.ui.view" id="Books_tree_view">
+      <field name="name">Tree view</field>
       <field name="model">docs_info.docs_info</field>
+      <field name="priority" eval="2" />
       <field name="arch" type="xml">
         <tree>
-          <field name="name"/>
-          <field name="value"/>
-          <field name="value2"/>
+          <field name="document_title"></field>
+          <field name="document_description"></field>
+          <field name="document_company"></field>
         </tree>
       </field>
     </record>
--->
-
-    <!-- actions opening views on models -->
-<!--
-    <record model="ir.actions.act_window" id="docs_info.action_window">
-      <field name="name">docs_info window</field>
+    <record model="ir.actions.act_window" id="docs_books_list_action">
+      <field name="name">Docs/Books</field>
       <field name="res_model">docs_info.docs_info</field>
+      <field name="view_id" ref="Books_tree_view"></field>
       <field name="view_mode">tree,form</field>
     </record>
--->
+    <menuitem id="docs_root"
+      name="Documents/Books"
+      sequence="1"
+      action="docs_books_list_action" />
 
-    <!-- server action to the one above -->
-<!--
-    <record model="ir.actions.server" id="docs_info.action_server">
-      <field name="name">docs_info server</field>
-      <field name="model_id" ref="model_docs_info_docs_info"/>
-      <field name="state">code</field>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": model._name,
-        }
-      </field>
-    </record>
--->
-
-    <!-- Top menu item -->
-<!--
-    <menuitem name="docs_info" id="docs_info.menu_root"/>
--->
-    <!-- menu categories -->
-<!--
-    <menuitem name="Menu 1" id="docs_info.menu_1" parent="docs_info.menu_root"/>
-    <menuitem name="Menu 2" id="docs_info.menu_2" parent="docs_info.menu_root"/>
--->
-    <!-- actions -->
-<!--
-    <menuitem name="List" id="docs_info.menu_1_list" parent="docs_info.menu_1"
-              action="docs_info.action_window"/>
-    <menuitem name="Server to list" id="docs_info" parent="docs_info.menu_2"
-              action="docs_info.action_server"/>
--->
   </data>
 </odoo>

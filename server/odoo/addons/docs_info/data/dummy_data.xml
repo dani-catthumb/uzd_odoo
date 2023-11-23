@@ -1,0 +1,39 @@
+<odoo>
+    <data>
+        <record id="company0" model="res.company">
+            <field name="name">Book Company</field>
+            <field name="city">Paris</field>
+            <field name="phone">123456</field>
+        </record>
+        <record id="company1" model="res.company">
+            <field name="name">Document Company</field>
+            <field name="city">London</field>
+            <field name="phone">654321</field>
+        </record>
+        <record id="doc0" model="docs_info.docs_info">
+            <field name="document_title">Yesterday is Today</field>
+            <field name="document_description">A man suddenly begins to experience vivid flashbacksof a life he doesn't remember living, and must unravel the mystery of his pastbefore it consumes his present.</field>
+            <field name="document_company" ref="company0"></field>
+            <field name="create_date">2023-11-19 21:53:45</field>
+        </record>
+        <record id="doc1" model="docs_info.docs_info">
+            <field name="document_title">Stay Hidden</field>
+            <field name="document_description">A klutzy wedding planner has to pull off the perfectceremony for a high-maintenance celebrity couple, all while battling their ownhilarious incompetence.</field>
+            <field name="document_company" ref="company0"></field>
+            <field name="create_date">2023-11-20 21:53:45</field>
+        </record>
+        <record id="doc2" model="docs_info.docs_info">
+            <field name="document_title">Corporate Policies and Procedures Manual</field>
+            <field name="document_description">The Corporate Policies and Procedures Manual is acomprehensive guide to all of the rules, regulations, and best practices that governthe operation of a company. It outlines the expectations and responsibilities ofemployees, and provides clear guidance on how to handle a wide range of situationsand scenarios.</field>
+            <field name="document_company" ref="company1"></field>
+            <field name="create_date">2023-11-21 21:53:45</field>
+        </record>
+        <record id="doc3" model="docs_info.docs_info">
+            <field name="document_title">Business Operations Handbook</field>
+            <field name="document_description">The Business Operations Handbook is a vital resourcefor anyone involved in the day-to-day management of a business. It outlines thevarious processes, systems, and procedures that keep a business running smoothly,from finance and HR to sales and marketing.</field>
+            <field name="document_company" ref="company1"></field>
+            <field name="create_date">2023-11-22 21:53:45</field>
+        </record>
+
+    </data>
+</odoo>
